@@ -4,3 +4,5 @@ A bash script to install tools used by DTS Developers &amp; A&amp;P Data Enginee
 Download the file to your Mac and run in the Terminal with the command
 
 ./setup.sh
+
+You may be prompted to enter your admin password
