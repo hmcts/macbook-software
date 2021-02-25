@@ -20,6 +20,7 @@ CASKS=(
     adoptopenjdk
     intellij-idea
     pycharm
+    slack
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -49,6 +50,10 @@ CASKS=(
     microsoft-azure-storage-explorer
     R
     rstudio
+    visual-studio
+    visual-studio-code
+    virtualbox
+    slack
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -80,6 +85,10 @@ CASKS=(
     microsoft-azure-storage-explorer
     R
     rstudio
+    visual-studio
+    visual-studio-code
+    virtualbox
+    slack
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
