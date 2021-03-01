@@ -13,4 +13,4 @@ run in the Terminal with the command
 
 ./setup.sh
 
-You may be prompted to enter your admin password
+You may be prompted to enter your admin password several times
