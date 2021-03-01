@@ -21,6 +21,8 @@ CASKS=(
     intellij-idea
     pycharm
     slack
+    google-chrome
+    pgadmin4
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -52,8 +54,10 @@ CASKS=(
     rstudio
     visual-studio
     visual-studio-code
-    virtualbox
+#    virtualbox
     slack
+    google-chrome
+    pgadmin4
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -87,8 +91,10 @@ CASKS=(
     rstudio
     visual-studio
     visual-studio-code
-    virtualbox
+#    virtualbox
     slack
+    google-chrome
+    pgadmin4
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
