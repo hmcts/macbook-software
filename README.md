@@ -9,11 +9,11 @@ Open terminal
 % cd Projects/macbook-software
 % git init
 % git clone https://github.com/hmcts/macbook-software
-# to download the files
+-- to download the files
 % chmod +x setup.sh 
-# to make it executable
+-- to make it executable
 % ./setup.sh
-# to run the script
+-- to run the script
 
 As the script runs it will prompt several times for admin password to proceed with an install.  The admin password is the one you use to login to the Macbook, not your AppleId password.
 
