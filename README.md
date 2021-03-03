@@ -1,16 +1,16 @@
 # macbook-software
 A bash script to install tools used by DTS Developers &amp; A&amp;P Data Engineers
 
-Download the file to your Mac
+Open a terminal – The Mac terminal seems to be almost identical to a Linux Bash Shell.  Like using WSL on Windows.
 
-Open a terminal, cd to the directory you have saved the file
+Create a folder for this, I created /Projects/macbook-software
 
-First make the file executable
+In the folder ‘Git init’ then ‘Git pull https://github.com/hmcts/macbook-software’ – the files will be downloaded - you may have to login to Github first
 
-chmod +x setup.sh
+This way the folder is a Git repository & VSCode will recognise it as such if you wanted to edit the bash file
 
-run in the Terminal with the command
+In the folder ‘chmod +x setup.sh’ to make it executable
 
-./setup.sh
+In the folder run the script with ‘./setup.sh’
 
-You may be prompted to enter your admin password several times
+As the script runs it will prompt several times for admin password to proceed with an install.  The admin password is the one you use to login to the Macbook, not your AppleId password.
