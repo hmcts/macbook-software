@@ -52,7 +52,7 @@ CASKS=(
     microsoft-azure-storage-explorer
     R
     rstudio
-    visual-studio
+#    visual-studio
     visual-studio-code
 #    virtualbox
     slack
