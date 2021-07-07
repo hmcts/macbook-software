@@ -5,8 +5,9 @@ developers(){
 # Collection of packages to install
 PACKAGES=(
     git
-    npm
-    postgresql
+    node@14
+    postgresql@12
+    libpq
     python3
     azure-cli
 )
