@@ -15,6 +15,9 @@ Enter the following into the terminal:
 - Run the script % `./setup.sh`
  
 As the script runs it will prompt several times for admin password to proceed with an install. The admin password is the one you use to login to the Macbook, not your AppleId password.
+
+You can also use the simple following one-liner in the terminal to run the script without needing to download, set permissions etc.
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hmcts/macbook-software/master/setup.sh)"`
  
 ### The software to be installed is:
  
