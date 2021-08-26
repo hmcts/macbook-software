@@ -24,6 +24,7 @@ CASKS=(
     slack
     google-chrome
     pgadmin4
+    parallels
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -59,6 +60,7 @@ CASKS=(
     slack
     google-chrome
     pgadmin4
+    parallels
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
@@ -96,6 +98,7 @@ CASKS=(
     slack
     google-chrome
     pgadmin4
+    parallels
 )
 echo "Installing cask apps..."
 brew install --cask --force ${CASKS[@]}
