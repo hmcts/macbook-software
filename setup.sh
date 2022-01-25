@@ -123,8 +123,10 @@ clear
 # Bootstrap script for setting up a new OSX machine
 # for Digital Delivery devs and QAs.
 
+# Version 0.1 - Thomas Geraghty
 # Version 0.2 - Thomas Geraghty
 # Version 0.3 - Sandy Gudgeon
+# Version 0.4 - Thomas Geraghty
 
 cat << "EOF"
  _   _ ___  ________ _____ _____   _____________
