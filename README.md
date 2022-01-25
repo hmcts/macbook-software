@@ -47,6 +47,7 @@ You can also use the simple following one-liner in the terminal to run the scrip
 - postgresql
 - python3
 - azure-cli
+- yq
 - docker
 - adoptopenjdk
 - intellij-idea
