@@ -10,6 +10,7 @@ PACKAGES=(
     libpq
     python3
     azure-cli
+    yq
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
@@ -75,8 +76,10 @@ PACKAGES=(
     git
     npm
     postgresql
+    libpq
     python3
     azure-cli
+    yq
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
@@ -114,9 +117,6 @@ if test ! $(which brew); then
 fi
 # Update homebrew
 brew update
-#cask install no longer needed as cask is part of homebrew
-#echo "Installing homebrew-cask..."
-#brew install caskroom/cask/brew-cask   
 }
 
 clear
