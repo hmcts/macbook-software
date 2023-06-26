@@ -35,7 +35,7 @@ developers(){
         intellij-idea
         pycharm
         slack
-        google-chrome
+        #google-chrome
         pgadmin4
         parallels
     )
@@ -46,7 +46,7 @@ developers(){
         intellij-idea
         pycharm
         slack
-        google-chrome
+        #google-chrome
         pgadmin4
     )
     echo "$MODE-ing cask apps..."
@@ -99,7 +99,7 @@ dataengineers(){
         visual-studio-code
     #    virtualbox
         slack
-        google-chrome
+        #google-chrome
         pgadmin4
         parallels
     )
@@ -115,7 +115,7 @@ dataengineers(){
         visual-studio-code
     #    virtualbox
         slack
-        google-chrome
+        #google-chrome
         pgadmin4
     )
 
@@ -175,7 +175,7 @@ allsoftware(){
             visual-studio-code
         #    virtualbox
             slack
-            google-chrome
+            #google-chrome
             pgadmin4
             parallels
         )
@@ -193,7 +193,7 @@ allsoftware(){
             visual-studio-code
         #    virtualbox
             slack
-            google-chrome
+            #google-chrome
             pgadmin4
         )
 
@@ -252,7 +252,10 @@ doBrewPackageInstallOrUninstall(){
     # PACKAGES_UNINSTALL : The list of packages that are going to be installed (if this is an install)
     case "$MODE" in
         'install')
-                brew install ${PACKAGES[@]}
+                for i in "${PACKAGES[@]}"; do
+                    echo "Installing package $i...."
+                    brew install $i
+                done
                 ;;
         'uninstall')
                 for i in "${PACKAGES_UNINSTALL[@]}"; do
@@ -273,7 +276,10 @@ doBrewCaskInstallOrUninstall(){
     # CASKS_UNINSTALL    : The list of casks that are going to be installed (if this is an install)
     case "$MODE" in
         'install')
-                brew install --cask --force ${CASKS[@]}
+                for i in "${CASKS[@]}"; do
+                    echo "Uninstalling cask $i....."
+                    brew install --cask --force $i
+                done
                 ;;
         'uninstall')
                 for i in "${CASKS_UNINSTALL[@]}"; do
@@ -290,7 +296,7 @@ doBrewCaskInstallOrUninstall(){
  # Install homebrew if not already installed
 install_homebrew(){
         if test ! $(which brew); then
-            echo "Installing homebrew..."
+            echo "Installing homebrew...NOTE : On M2 boxes you will have to follow instrcutions to add brew to your path"
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         fi
         # Update homebrew
@@ -306,6 +312,7 @@ clear
 # Version 0.3 - Sandy Gudgeon
 # Version 0.4 - Thomas Geraghty
 # Version 0.5 - Rajiv Kapoor (added uninstall functionality)
+# Version 0.6 - Rajiv Kapoor (minor changes. removed google-chrome and also allow it to work with M2)
 
 cat << "EOF"
  _   _ ___  ________ _____ _____   _____________
