@@ -39,7 +39,6 @@ As the script runs it will prompt several times for admin password to proceed wi
 - visual-studio
 - visual-studio-code
 - slack
-- google-chrome
 - pgadmin4
  
 **For DTS Developers:**
@@ -55,5 +54,4 @@ As the script runs it will prompt several times for admin password to proceed wi
 - intellij-idea
 - pycharm
 - slack
-- google-chrome
 - pgadmin4
