@@ -296,7 +296,7 @@ doBrewCaskInstallOrUninstall(){
  # Install homebrew if not already installed
 install_homebrew(){
         if test ! $(which brew); then
-            echo "Installing homebrew...NOTE : On M2 boxes you will have to follow instrcutions to add brew to your path"
+            echo "Installing homebrew...NOTE : On M2 boxes you will have to follow instructions to add brew to your path"
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         fi
         # Update homebrew
