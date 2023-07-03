@@ -277,7 +277,7 @@ doBrewCaskInstallOrUninstall(){
     case "$MODE" in
         'install')
                 for i in "${CASKS[@]}"; do
-                    echo "Uninstalling cask $i....."
+                    echo "Installing cask $i....."
                     brew install --cask --force $i
                 done
                 ;;
