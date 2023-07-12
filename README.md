@@ -19,7 +19,7 @@ Alternatively, enter the following into the terminal (requires Git to be install
  
 As the script runs it will prompt several times for admin password to proceed with an install. The admin password is the one you use to login to the Macbook, not your Apple ID password.
 
-
+The script will detect also whether it is running on an M1/M2 Macbook, and it will do some extra steps accordingly
  
 ### The software to be installed is:
  
