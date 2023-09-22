@@ -37,7 +37,6 @@ developers(){
         slack
         #google-chrome
         pgadmin4
-        parallels
     )
     # Same Casks, but a Seperate list for uninstall casks, as the order may need to be different
     CASKS_UNINSTALL=(
@@ -54,13 +53,8 @@ developers(){
     echo "Cleaning up..."
     brew cleanup
 
-    #if the mode is to uninstall, ensure that the uninstall of parallels is done, as a special case.
-    if [ "$MODE" = "uninstall" ]
-    then
-        parallels_uninstall
-    else
-        echo "Finished the install"
-    fi
+    doParallelsSteps
+
 }
 
 #software for A&P Data Engineers
@@ -101,7 +95,6 @@ dataengineers(){
         slack
         #google-chrome
         pgadmin4
-        parallels
     )
     # Same Casks, but a Seperate list for uninstall casks, as the order may need to be different
     CASKS_UNINSTALL=(
@@ -124,13 +117,7 @@ dataengineers(){
     echo "Cleaning up..."
     brew cleanup
 
-    #if the mode is to uninstall, ensure that the uninstall of parallels is done, as a special case.
-    if [ "$MODE" = "uninstall" ]
-    then
-        parallels_uninstall
-    else
-        echo "Finished the install"
-    fi
+    doParallelsSteps
 }
 
 #all software
@@ -177,7 +164,6 @@ allsoftware(){
             slack
             #google-chrome
             pgadmin4
-            parallels
         )
         # Same Casks, but a Seperate list for uninstall casks, as the order may need to be different
         CASKS_UNINSTALL=(
@@ -201,14 +187,35 @@ allsoftware(){
         doBrewCaskInstallOrUninstall;
         echo "Cleaning up..."
         brew cleanup
+    
+        doParallelsSteps
+}
 
-        #if the mode is to uninstall, ensure that the uninstall of parallels is done, as a special case.
-        if [ "$MODE" = "uninstall" ]
-        then
-            parallels_uninstall
-        else
-            echo "Finished the install"
-        fi
+doParallelsSteps(){
+    #only install and uninstall parallels if the architecture is NOT Silicon M1/M2
+    if [ "$ARCH" = "arm" ]
+    then
+      echo "The uninstall/install of all of the software has finished."
+      echo "..However, please note (only applicable for install) that on ARM M1/M2 Macbooks,  parallels does not install using brew"
+      echo "If you wish to install this on those box types, please install parallels another way"
+    else
+      #if the mode is to uninstall, ensure that the uninstall of parallels is done, as a special case.
+      if [ "$MODE" = "uninstall" ]
+      then
+          parallels_uninstall
+      else
+          parallels_install
+      fi
+    fi
+}
+
+#parallels install special case
+parallels_install(){
+
+        echo "Installing parallels now...."        
+        brew install --cask --force parallels
+        echo "Cleaning up..."
+        brew cleanup
 }
 
 #parallels uninstall special case
@@ -294,11 +301,38 @@ doBrewCaskInstallOrUninstall(){
 }
 
  # Install homebrew if not already installed
+determinel_mac_arch(){
+        ARCH="$(uname -p)"
+        echo "This Macbook has Architecture type = $ARCH"
+}
+
+ # Install homebrew if not already installed
 install_homebrew(){
         if test ! $(which brew); then
-            echo "Installing homebrew...NOTE : On M2 boxes you will have to follow instructions to add brew to your path"
+           
+          if [ "$ARCH" = "arm" ]
+          then
+            # On M1/M2 boxes, try source'ing the .zprofile, as brew if it had been installed partially from before, it should have left a command there.
+            source ~/.zprofile
+          fi
+
+          # now test again for brew
+          if test ! $(which brew); then
+            echo "Installing homebrew...NOTE : On M2 boxes this is installed in /opt/homebrew"
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        
+            if [ "$ARCH" = "arm" ]
+            then
+              echo "We have detected that this Macbook is a M1/M2 Silicon Macbook"
+              echo "On these box types, brew is not automatically added to one's path"
+              echo "Therefore, we urge you to add this eval line (only the first line) to your .zhrc or .bashrc files"
+              set -x
+              eval $(/opt/homebrew/bin/brew shellenv)
+              set +x
+            fi
+          fi
         fi
+
         # Update homebrew
         brew update
 }
@@ -333,6 +367,8 @@ echo "Any problems email :"
 echo "Thomas Geraghty - thomas.geraghty@justice.gov.uk for DTS Developer/QA queries"
 echo "Alexander Gudgeon - alexander.gudgeon@justice.gov.uk for A&P Data Engineering queries"
 echo ""
+determinel_mac_arch
+
 ECHO "Pease enter your choice: "
 options=("Install DTS Developer Tools" "Install A&P Data Engineer Tools" "Install All Tools" "*UNINSTALL DTS Developer Tools" "*UNINSTALL A&P Data Engineer Tools" "*UNINSTALL All Tools" "Quit")
 select opt in "${options[@]}"
