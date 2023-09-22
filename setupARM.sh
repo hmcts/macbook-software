@@ -192,64 +192,11 @@ allsoftware(){
 }
 
 doParallelsSteps(){
-    #only install and uninstall parallels if the architecture is NOT Silicon M1/M2
-    if [ "$ARCH" = "arm" ]
-    then
-      echo "The uninstall/install of all of the software has finished."
-      echo "..However, please note (only applicable for install) that on ARM M1/M2 Macbooks,  parallels does not install using brew"
-      echo "If you wish to install this on those box types, please install parallels another way"
-    else
-      #if the mode is to uninstall, ensure that the uninstall of parallels is done, as a special case.
-      if [ "$MODE" = "uninstall" ]
-      then
-          parallels_uninstall
-      else
-          parallels_install
-      fi
-    fi
-}
-
-#parallels install special case
-parallels_install(){
-
-        echo "Installing parallels now...."        
-        brew install --cask --force parallels
-        echo "Cleaning up..."
-        brew cleanup
-}
-
-#parallels uninstall special case
-parallels_uninstall(){
-
-        echo "Uninstalling parallels now...."        
-        brew uninstall --cask --force parallels
-        echo "Cleaning up..."
-        brew cleanup
-
-
-cat << "EOF2"
-The uninstall has now finished.....
-
-**** Steps to complete Post uninstall of parallels ****
-Please read the below...
-The uninstall of parallels should have completed. However, due to an anomoly with the way that parallels installs
-, the uninstall may or may not have reported an error. Please follow the instructions below carefully..
-
-you may have seen something like this at the end of the parallels uninstall...
---------------------------------------------------------------------------
-Cleaning up...
-Error: Permission denied @ apply2files - /usr/local/share/man/man8/prl_convert.8
-
-Steps to carry out to resolve any errors...
-------------------------------------------
-1. Try and check the health of brew. Try to install something that you havent already got, and see if brew complains. eg. try and install jq.
-   >brew install jq (if you already have jq installed, please do a brew uninstall jq followed by the install)
-2. If you dont see any errors, then you can exit now, as parallels would have uninstalled without causing any problems.
-3. However, if you did see an error, then brew tells you how to rectify this.
-4. Follow the instructions given by brew, if it is only changing the owner of the /usr/local/share/man/man8 directory, as this is fairly harmless thing to do.
-5. If it is merely changing the owner, please indeed follow the suggested solution by brew.
-6. If it is more complex, then please seek help from the authors of this script.
-EOF2
+    #show a note that the parallels is not installed for ARM chipsets using brew
+    echo "The uninstall/install of all of the software has finished."
+    echo "..However, please note. As this is the install script for the ARM(M1/M2) machines, we could not and did not install parallels using brew"
+    echo "parallels software allows you to have separate boot partitions on your Macbook and is not often required"
+    echo "However, if you wish to install this on those box types, please install parallels another way"
 }
 
 doBrewPackageInstallOrUninstall(){
@@ -300,10 +247,21 @@ doBrewCaskInstallOrUninstall(){
     esac
 }
 
- # Install homebrew if not already installed
-determinel_mac_arch(){
+ # determine Macbook is eitrher INTEL based or ARM (M1/M2) based
+determine_mac_arch(){
         ARCH="$(uname -p)"
         echo "This Macbook has Architecture type = $ARCH"
+        # This script is to setup ARM Macbooks Check if the ARCH is correct. If not, then exit the script and ask the user to run the correct script.
+        if [ "$ARCH" = "arm" ]
+        then
+           echo "You are using the correct setup script for this type of Macbook. setupARM.sh" 
+        else
+           echo "WARNING!!!!! This script is only for Macbooks with the ARM(M1/M2) chipsets."
+           echo "You are NOT using the correct setup script for this type of Macbook. This script is only for Macbooks with the ARM(M1/M2) chipisets"
+           echo "We will exit the script now. Please try and run the correct setupINTEL.sh script for your chipset"
+           echo "EXITING NOW.."
+           exit 1
+        fi
 }
 
  # Install homebrew if not already installed
@@ -323,7 +281,7 @@ install_homebrew(){
         
             if [ "$ARCH" = "arm" ]
             then
-              echo "We have detected that this Macbook is a M1/M2 Silicon Macbook"
+              echo "We have detected that this Macbook is an ARM(M1/M2) Silicon Macbook"
               echo "On these box types, brew is not automatically added to one's path"
               echo "Therefore, we urge you to add this eval line (only the first line) to your .zhrc or .bashrc files"
               set -x
@@ -347,6 +305,8 @@ clear
 # Version 0.4 - Thomas Geraghty
 # Version 0.5 - Rajiv Kapoor (added uninstall functionality)
 # Version 0.6 - Rajiv Kapoor (minor changes. removed google-chrome and also allow it to work with M2)
+# Version 0.7 - Rajiv Kapoor (minor changes. More specific changes to detect between M2 and Intel especially re: parallels installation)
+# Version 0.8 - Rajiv Kapoor (Made this file now and going forward just for installation on ARM(M1/M2) based chipsets)
 
 cat << "EOF"
  _   _ ___  ________ _____ _____   _____________
@@ -367,7 +327,7 @@ echo "Any problems email :"
 echo "Thomas Geraghty - thomas.geraghty@justice.gov.uk for DTS Developer/QA queries"
 echo "Alexander Gudgeon - alexander.gudgeon@justice.gov.uk for A&P Data Engineering queries"
 echo ""
-determinel_mac_arch
+determine_mac_arch
 
 ECHO "Pease enter your choice: "
 options=("Install DTS Developer Tools" "Install A&P Data Engineer Tools" "Install All Tools" "*UNINSTALL DTS Developer Tools" "*UNINSTALL A&P Data Engineer Tools" "*UNINSTALL All Tools" "Quit")
