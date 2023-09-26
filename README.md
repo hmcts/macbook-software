@@ -47,12 +47,11 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - rstudio
 - visual-studio
 - visual-studio-code
-#virtualbox
 - slack
-#google-chrome
 - pgadmin4
 - parallels (only for INTEL based Macbooks)
-
+-#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
+-#virtualbox(no longer installed - user is advised to obtain from MoJ SelfService App)
 
 **For A&P users:**
 
@@ -67,12 +66,12 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - microsoft-azure-storage-explorer
 - R
 - rstudio
-#- visual-studio
 - visual-studio-code
 - slack
 - pgadmin4
 - parallels (only for INTEL based Macbooks)
- 
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
+
 **For DTS Developers:**
 
 - git
@@ -87,6 +86,6 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - intellij-idea
 - pycharm
 - slack
-#google-chrome
 - pgadmin4
-- parallels (only for INTEL based Macbooks)
+- parallels (only for INTEL based Macbooks)p
+-#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
