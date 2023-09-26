@@ -47,7 +47,7 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - rstudio
 - visual-studio
 - visual-studio-code
-#    virtualbox
+#virtualbox
 - slack
 #google-chrome
 - pgadmin4
