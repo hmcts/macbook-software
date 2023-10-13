@@ -1,10 +1,15 @@
 # macbook-software
  
-### A bash script to install tools used by DTS Developers & A&P Data Engineers
- 
+### bash scripts to install tools used by DTS Developers & A&P Data Engineers
+
+Choose the correct script for your particular Macbook. It may have Intel chipsets or Arm chipsets.
+
+- setupINTEL.sh (use this script if you are running an Intel based Mac)
+- setupARM.sh   (use this script if you are running an  ARM  based Mac)
+
 To run the script, use the simple following one-liner in the terminal
 
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hmcts/macbook-software/master/setup.sh)"`
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hmcts/macbook-software/master/setup<INTEL|ARM>.sh)"`
  
 Alternatively, enter the following into the terminal (requires Git to be installed):
  
@@ -14,17 +19,42 @@ Alternatively, enter the following into the terminal (requires Git to be install
   - Note: If prompted to install xCode CLI tools, allow the install to proceed as it will add git and a few other CLI tools to your system.
 - Clone the repo to download the files % `git clone https://github.com/hmcts/macbook-software`
 - Navigate to the macbook-software folder % `cd macbook-software`
-- Make it executable % `chmod +x setup.sh`
-- Run the script % `./setup.sh`
+- Make it executable % `chmod +x setup*.sh`
+- Run the script % `./setup<INTEL|ARM>.sh`
  
 As the script runs it will prompt several times for admin password to proceed with an install. The admin password is the one you use to login to the Macbook, not your Apple ID password.
 
-The script will detect also whether it is running on an M1/M2 Macbook, and it will do some extra steps accordingly
+Each script does slighly different steps in places, for either the INTEL or ARM(M1/M2) architecture.
  
 ### The software to be installed is:
- 
+
+**ALL Software:**
+
+- git
+- npm
+- postgresql
+- libpq
+- python3
+- azure-cli
+- yq
+- adoptopenjdk
+- intellij-idea
+- docker
+- pycharm
+- azure-data-studio
+- microsoft-azure-storage-explorer
+- R
+- rstudio
+- visual-studio
+- visual-studio-code
+- slack
+- pgadmin4
+- parallels (only for INTEL based Macbooks)
+-#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
+-#virtualbox(no longer installed - user is advised to obtain from MoJ SelfService App)
+
 **For A&P users:**
- 
+
 - git
 - npm
 - postgresql
@@ -36,16 +66,18 @@ The script will detect also whether it is running on an M1/M2 Macbook, and it wi
 - microsoft-azure-storage-explorer
 - R
 - rstudio
-- visual-studio
 - visual-studio-code
 - slack
 - pgadmin4
- 
+- parallels (only for INTEL based Macbooks)
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
+
 **For DTS Developers:**
- 
+
 - git
-- npm
-- postgresql
+- node@14
+- postgresql@12
+- libpq
 - python3
 - azure-cli
 - yq
@@ -55,3 +87,5 @@ The script will detect also whether it is running on an M1/M2 Macbook, and it wi
 - pycharm
 - slack
 - pgadmin4
+- parallels (only for INTEL based Macbooks)p
+-#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
