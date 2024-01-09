@@ -1,6 +1,6 @@
 # macbook-software
  
-### bash scripts to install tools used by DTS Developers & A&P Data Engineers
+### bash scripts to install tools used by DTS Developers & DAI Data Engineers
 
 Choose the correct script for your particular Macbook. It may have Intel chipsets or Arm chipsets.
 
