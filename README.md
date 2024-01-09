@@ -53,7 +53,7 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 -#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
 -#virtualbox(no longer installed - user is advised to obtain from MoJ SelfService App)
 
-**For A&P users:**
+**For DAI users:**
 
 - git
 - npm
