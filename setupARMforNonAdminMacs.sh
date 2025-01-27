@@ -307,6 +307,7 @@ clear
 # Version 0.6 - Rajiv Kapoor (minor changes. removed google-chrome and also allow it to work with M2)
 # Version 0.7 - Rajiv Kapoor (minor changes. More specific changes to detect between M2 and Intel especially re: parallels installation)
 # Version 0.8 - Rajiv Kapoor (Made this file now and going forward just for installation on ARM(M1/M2) based chipsets)
+# Version 0.9 - Rajiv Kapoor (Made this specific file now for Non Admin Macbooks.It uses the --appdir flag when installing Casks 
 
 cat << "EOF"
  _   _ ___  ________ _____ _____   _____________
