@@ -6,6 +6,10 @@ Choose the correct script for your particular Macbook. It may have Intel chipset
 
 - setupINTEL.sh (use this script if you are running an Intel based Mac)
 - setupARM.sh   (use this script if you are running an  ARM  based Mac)
+- setupINTELforNonAdminMacs.sh (use this script if you are running an Intel based Mac which does NOT have admin permissions)
+- setupARMforNonAdminMacs.sh   (use this script if you are running an  ARM  based Mac which does NOT have admin permissions)
+
+Note: The scripts for the Non Admin Macs do exactly the same installs except that Casks are installed into ~/Applications folder rather than /Applications folder
 
 To run the script, use the simple following one-liner in the terminal
 
