@@ -30,7 +30,7 @@ developers(){
 
     #now install casks
     CASKS=(
-        docker
+        #docker Needs password so better installed via MoJ Self service store
         adoptopenjdk
         intellij-idea
         pycharm
@@ -40,7 +40,7 @@ developers(){
     )
     # Same Casks, but a Seperate list for uninstall casks, as the order may need to be different
     CASKS_UNINSTALL=(
-        docker
+        #docker Needs password so better installed via MoJ Self service store
         adoptopenjdk
         intellij-idea
         pycharm
@@ -83,11 +83,11 @@ dataengineers(){
     
     #now install casks
     CASKS=(
-        docker
+        #docker Needs password so better installed via MoJ Self service store
         pycharm
         azure-data-studio
         microsoft-azure-storage-explorer
-        R
+        #R Needs password so better installed via MoJ Self service store
         rstudio
     #    visual-studio
         visual-studio-code
@@ -98,11 +98,11 @@ dataengineers(){
     )
     # Same Casks, but a Seperate list for uninstall casks, as the order may need to be different
     CASKS_UNINSTALL=(
-        docker
+        #docker Needs password so better installed via MoJ Self service store
         pycharm
         azure-data-studio
         microsoft-azure-storage-explorer
-        R
+        #R Needs password so better installed via MoJ Self service store
         rstudio
     #    visual-studio
         visual-studio-code
@@ -152,11 +152,11 @@ allsoftware(){
         CASKS=(
             adoptopenjdk
             intellij-idea
-            docker
+            #docker Needs password so better installed via MoJ Self service store
             pycharm
             azure-data-studio
             microsoft-azure-storage-explorer
-            R
+            #R Needs password so better installed via MoJ Self service store
             rstudio
             visual-studio
             visual-studio-code
@@ -169,11 +169,11 @@ allsoftware(){
         CASKS_UNINSTALL=(
             adoptopenjdk #password may be necessary
             intellij-idea
-            docker #password alwyas seems to be required
+            #docker Needs password so better installed via MoJ Self service store
             pycharm
             azure-data-studio
             microsoft-azure-storage-explorer
-            R #password may be necessary
+            #R Needs password so better installed via MoJ Self service store
             rstudio
             visual-studio
             visual-studio-code
@@ -301,11 +301,11 @@ determine_mac_arch(){
         then
            echo "WARNING!!!!! This script is only for Macbooks with the Intel chip."
            echo "You are NOT using the correct setup script for this type of Macbook. This script is only for Macbooks with the Intel chip."
-           echo "We will exit the script now. Please try and run the correct setupARM.sh script for your chipset"
+           echo "We will exit the script now. Please try and run the correct setupARMforNonAdminMacs.sh script for your chipset"
            echo "EXITING NOW.."
            exit 1
         fi
-        echo "You are using the correct setup script for this type of Macbook. setupINTEL.sh" 
+        echo "You are using the correct setup script for this type of Macbook. setupINTELforNonAdminMacs.sh" 
 }
 
  # Install homebrew if not already installed
@@ -337,6 +337,7 @@ clear
 # Version 0.7 - Rajiv Kapoor (minor changes. More specific changes to detect between M2 and Intel especially re: parallels installation)
 # Version 0.8 - Rajiv Kapoor (Made this file now and going forward just for installation on Intel based chipsets)
 # Version 0.9 - Rajiv Kapoor (Made this specific file now for Non Admin Macbooks.It uses the --appdir flag when installing Casks
+# Version 1.0 - Rajiv Kapoor (No longer installs Docker and R, as these should be installed via SelfServiceStore or another way 
 
 
 cat << "EOF"
