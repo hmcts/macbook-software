@@ -53,8 +53,8 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - microsoft-azure-storage-explorer
 - R (only for full admin macs. non admin users should get from MoJ Self Service store)
 - rstudio
-- visual-studio
 - visual-studio-code
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
 - slack
 - pgadmin4
 - parallels (only for INTEL based Macbooks)
@@ -75,6 +75,7 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - R (only for full admin macs. non admin users should get from MoJ Self Service store)
 - rstudio
 - visual-studio-code
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
 - slack
 - pgadmin4
 - parallels (only for INTEL based Macbooks)

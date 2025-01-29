@@ -158,7 +158,7 @@ allsoftware(){
             microsoft-azure-storage-explorer
             #R Needs password so better installed via MoJ Self service store
             rstudio
-            visual-studio
+            #visual-studio
             visual-studio-code
         #    virtualbox
             slack
@@ -175,7 +175,7 @@ allsoftware(){
             microsoft-azure-storage-explorer
             #R Needs password so better installed via MoJ Self service store
             rstudio
-            visual-studio
+            #visual-studio
             visual-studio-code
         #    virtualbox
             slack
@@ -337,7 +337,7 @@ clear
 # Version 0.7 - Rajiv Kapoor (minor changes. More specific changes to detect between M2 and Intel especially re: parallels installation)
 # Version 0.8 - Rajiv Kapoor (Made this file now and going forward just for installation on Intel based chipsets)
 # Version 0.9 - Rajiv Kapoor (Made this specific file now for Non Admin Macbooks.It uses the --appdir flag when installing Casks
-# Version 1.0 - Rajiv Kapoor (No longer installs Docker and R, as these should be installed via SelfServiceStore or another way 
+# Version 1.0 - Rajiv Kapoor (No longer installs Docker and R,VS Studio as these should be installed via SelfServiceStore or another way 
 
 
 cat << "EOF"
