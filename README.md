@@ -11,10 +11,14 @@ Choose the correct script for your particular Macbook. It may have Intel chipset
 
 Note: The scripts for the Non Admin Macs do exactly the same installs except that Casks are installed into ~/Applications folder rather than /Applications folder
 
-To run the script, use the simple following one-liner in the terminal
+To run the script (for full Admin macbooks), use the simple following one-liner in the terminal
 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hmcts/macbook-software/master/setup<INTEL|ARM>.sh)"`
  
+To run the script (for NonAdmin macbooks), use the simple following one-liner in the terminal
+
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hmcts/macbook-software/master/setup<INTEL|ARM>forNonAdminMacs.sh)"`
+
 Alternatively, enter the following into the terminal (requires Git to be installed):
  
 - Create folder called Projects `mkdir Projects`
@@ -24,7 +28,7 @@ Alternatively, enter the following into the terminal (requires Git to be install
 - Clone the repo to download the files % `git clone https://github.com/hmcts/macbook-software`
 - Navigate to the macbook-software folder % `cd macbook-software`
 - Make it executable % `chmod +x setup*.sh`
-- Run the script % `./setup<INTEL|ARM>.sh`
+- Run the relevant setup.sh script for your platform and whether you have Admin or not
  
 As the script runs it will prompt several times for admin password to proceed with an install. The admin password is the one you use to login to the Macbook, not your Apple ID password.
 
@@ -43,14 +47,14 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - yq
 - adoptopenjdk
 - intellij-idea
-- docker
+- docker (only for full admin macs. non admin users should get from MoJ Self Service store)
 - pycharm
 - azure-data-studio
 - microsoft-azure-storage-explorer
-- R
+- R (only for full admin macs. non admin users should get from MoJ Self Service store)
 - rstudio
-- visual-studio
 - visual-studio-code
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
 - slack
 - pgadmin4
 - parallels (only for INTEL based Macbooks)
@@ -64,13 +68,14 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - postgresql
 - python3
 - azure-cli
-- docker
+- docker (only for full admin macs. non admin users should get from MoJ Self Service store)
 - pycharm
 - azure-data-studio
 - microsoft-azure-storage-explorer
-- R
+- R (only for full admin macs. non admin users should get from MoJ Self Service store)
 - rstudio
 - visual-studio-code
+-#visual-studio (no longer installed - user is advised to use the free version which is visual-studio-code)
 - slack
 - pgadmin4
 - parallels (only for INTEL based Macbooks)
@@ -85,7 +90,7 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - python3
 - azure-cli
 - yq
-- docker
+- docker (only for full admin macs. non admin users should get from MoJ Self Service store)
 - adoptopenjdk
 - intellij-idea
 - pycharm
