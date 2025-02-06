@@ -13,6 +13,9 @@ else
     exit 1
 fi
 
+#set PATH to pick up docker installed in HOME/.docker/bin
+echo "export PATH=$PATH:$HOME/.docker/bin" >> "$SHELL_RC"
+
 # Set the DOCKER_HOST environment variable
 if ! grep -q "DOCKER_HOST=unix://\$HOME/.docker/run/docker.sock" "$SHELL_RC"; then
     echo "export DOCKER_HOST=unix://\$HOME/.docker/run/docker.sock" >> "$SHELL_RC"
