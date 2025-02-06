@@ -13,15 +13,16 @@ else
     exit 1
 fi
 
-#set PATH to pick up docker installed in HOME/.docker/bin
-echo "export PATH=$PATH:$HOME/.docker/bin" >> "$SHELL_RC"
-
 # Set the DOCKER_HOST environment variable
 if ! grep -q "DOCKER_HOST=unix://\$HOME/.docker/run/docker.sock" "$SHELL_RC"; then
     echo "export DOCKER_HOST=unix://\$HOME/.docker/run/docker.sock" >> "$SHELL_RC"
+    #set PATH to pick up docker installed in HOME/.docker/bin
+    echo "export PATH=$PATH:$HOME/.docker/bin" >> "$SHELL_RC"
+    echo "✅ Added $HOME/.docker/bin to $PATH"
     echo "✅ Added DOCKER_HOST to $SHELL_RC"
 else
     echo "✅ DOCKER_HOST is already set in $SHELL_RC"
+    echo "✅ Check your $PATH contains $HOME/.docker/bin"
 fi
 
 # Reload the shell configuration
@@ -35,3 +36,4 @@ chmod 700 $HOME/.docker
 echo "🔄 Now Please Restart Your Docker Desktop..."
 echo "...After the restart check that Docker should have created the following file..."
 echo "The file is $HOME/.docker/run/docker.sock"
+echo "Check also that your $PATH contains <home-dir>/.docker/bin"
