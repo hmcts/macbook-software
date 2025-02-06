@@ -8,6 +8,7 @@ Choose the correct script for your particular Macbook. It may have Intel chipset
 - setupARM.sh   (use this script if you are running an  ARM  based Mac)
 - setupINTELforNonAdminMacs.sh (use this script if you are running an Intel based Mac which does NOT have admin permissions)
 - setupARMforNonAdminMacs.sh   (use this script if you are running an  ARM  based Mac which does NOT have admin permissions)
+- setDockerHostForNonAdminMacs.sh (use this script if you are running any Mac which does NOT have admin permissions AFTER you have installed DockerDesktop in the way it should be installed for non admin Macs as per Confluence page)
 
 Note: The scripts for the Non Admin Macs do exactly the same installs except that Casks are installed into ~/Applications folder rather than /Applications folder
 
@@ -98,3 +99,8 @@ Each script does slighly different steps in places, for either the INTEL or ARM(
 - pgadmin4
 - parallels (only for INTEL based Macbooks)p
 -#google-chrome(no longer installed - user is advised to obtain from MoJ SelfService App)
+
+### The setDockerHostForNonAdminMacs.sh does:
+
+- sets PATH to find a local docker executable in home-dir/.docker/bin
+- sets DOCKER_HOST variable to find a local docker.sock file
