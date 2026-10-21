@@ -5,7 +5,7 @@ developers(){
     # Collection of packages to install
     PACKAGES=(
         git
-        node@14
+        node@22
         postgresql@12
         libpq
         python3
@@ -16,7 +16,7 @@ developers(){
     PACKAGES_UNINSTALL=(
         azure-cli
         git
-        node@14
+        node@22
         postgresql@12
         libpq
         python3        
@@ -283,7 +283,7 @@ install_homebrew(){
             then
               echo "We have detected that this Macbook is an ARM(M1/M2) Silicon Macbook"
               echo "On these box types, brew is not automatically added to one's path"
-              echo "Therefore, we urge you to add this eval line (only the first line) to your .zhrc or .bashrc files"
+              echo "Therefore, we urge you to add this eval line (only the first line) to your .zshrc or .bashrc files"
               set -x
               eval $(/opt/homebrew/bin/brew shellenv)
               set +x
@@ -332,7 +332,7 @@ echo "Rajiv Kapoor - rajiv.kapoor@justice.gov.uk for general queries on this scr
 echo ""
 determine_mac_arch
 
-ECHO "Pease enter your choice: "
+ECHO "Please enter your choice: "
 options=("Install DTS Developer Tools" "Install A&P Data Engineer Tools" "Install All Tools" "*UNINSTALL DTS Developer Tools" "*UNINSTALL A&P Data Engineer Tools" "*UNINSTALL All Tools" "Quit")
 select opt in "${options[@]}"
 do
