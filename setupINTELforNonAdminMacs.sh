@@ -5,7 +5,7 @@ developers(){
     # Collection of packages to install
     PACKAGES=(
         git
-        node@14
+        node@22
         postgresql@12
         libpq
         python3
@@ -16,7 +16,7 @@ developers(){
     PACKAGES_UNINSTALL=(
         azure-cli
         git
-        node@14
+        node@22
         postgresql@12
         libpq
         python3        
@@ -361,7 +361,7 @@ echo "Alexander Gudgeon - alexander.gudgeon@justice.gov.uk for A&P Data Engineer
 echo ""
 determine_mac_arch
 
-ECHO "Pease enter your choice: "
+ECHO "Please enter your choice: "
 options=("Install DTS Developer Tools" "Install A&P Data Engineer Tools" "Install All Tools" "*UNINSTALL DTS Developer Tools" "*UNINSTALL A&P Data Engineer Tools" "*UNINSTALL All Tools" "Quit")
 select opt in "${options[@]}"
 do
